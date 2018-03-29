@@ -10,8 +10,14 @@ var options = new Options(
 var aws = new Aws(options);
 
 
-async function getInstances(vpcid) {
+async function getInstancesByVPC(vpcid) {
   const cmd = `ec2 describe-instances --filter "Name=vpc-id,Values=${vpcid}"`
+  const data = await aws.command(cmd);
+  return data.object.Reservations.map( entry => entry.Instances);
+}
+
+async function getInstancesBySubnet(subnetId) {
+  const cmd = `ec2 describe-instances --filter "Name=subnet-id,Values=${subnetId}"`
   const data = await aws.command(cmd);
   return data.object.Reservations.map( entry => entry.Instances);
 }
@@ -19,14 +25,29 @@ async function getInstances(vpcid) {
 async function getSubnets(vpcid) {
   const cmd = `ec2 describe-subnets --filter "Name=vpc-id,Values=${vpcid}"`
   const data = await aws.command(cmd);
-  console.log(JSON.stringify(data.object.Subnets,null,2));
-  return data;
-  // return data.object.Reservations.map( entry => entry.Instances);
+  return data.object.Subnets;
 }
 
+async function getSecurityGroupsByGroupIDs(groupIds) {
+  const cmd = `ec2 describe-security-groups --group-ids ${groupIds.join(" ")}`
+  const data = await aws.command(cmd);
+  return data.object.SecurityGroups;
+}
+
+function getTag(arrObj, key) {
+  const result =  arrObj.filter(entry => {
+    return entry.Key === key
+  });
+
+  return result;
+}
 
 exports.aws=aws
 exports.utils = {
-  getInstances: getInstances,
-  getSubnets: getSubnets
+  getInstancesByVPC: getInstancesByVPC,
+  getInstancesBySubnet: getInstancesBySubnet,
+  getSecurityGroupsByGroupIDs: getSecurityGroupsByGroupIDs,
+  getSubnets: getSubnets,
+  getTag: getTag
+
 }

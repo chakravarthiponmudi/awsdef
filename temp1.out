@@ -1,0 +1,139 @@
+{
+  "subnet-b4b7ebe9": {
+    "subnetLogicalName": "PrivateUsEast1bEc2Subnet",
+    "subnetName": "10.137.101.0/24-VPCSubnet-us-east-1b",
+    "CidrBlock": "10.137.101.0/24",
+    "instances": {
+      "i-0d1441af5b181e18d": {
+        "privateIpAddress": "10.137.101.193",
+        "securityGroups": {
+          "sg-90b23ce6": {
+            "desciption": "Provides default SSH access"
+          },
+          "sg-5e4fc128": {
+            "desciption": "Mesos Worker Security Group"
+          },
+          "sg-0344ca75": {
+            "desciption": "Whole Mesos cluster Security Group"
+          },
+          "sg-41b13f37": {
+            "desciption": "Provides egress for ports 8140, 80 and 443"
+          }
+        }
+      }
+    }
+  },
+  "subnet-28bae307": {
+    "subnetLogicalName": "PublicUsEast1dEc2Subnet",
+    "subnetName": "10.137.99.0/24-Public-us-east-1d",
+    "CidrBlock": "10.137.99.0/24",
+    "instances": null
+  },
+  "subnet-8ae101c0": {
+    "subnetLogicalName": "PublicUsEast1aEc2Subnet",
+    "subnetName": "10.137.96.0/24-Public-us-east-1a",
+    "CidrBlock": "10.137.96.0/24",
+    "instances": null
+  },
+  "subnet-f7e808bd": {
+    "subnetLogicalName": "PrivateUsEast1aEc2Subnet",
+    "subnetName": "10.137.100.0/24-VPCSubnet-us-east-1a",
+    "CidrBlock": "10.137.100.0/24",
+    "instances": {
+      "i-0e9c650e07b3a4d56": {
+        "privateIpAddress": "10.137.100.64",
+        "securityGroups": {
+          "sg-90b23ce6": {
+            "desciption": "Provides default SSH access"
+          },
+          "sg-5e4fc128": {
+            "desciption": "Mesos Worker Security Group"
+          },
+          "sg-0344ca75": {
+            "desciption": "Whole Mesos cluster Security Group"
+          },
+          "sg-41b13f37": {
+            "desciption": "Provides egress for ports 8140, 80 and 443"
+          }
+        }
+      },
+      "i-077e6ede3ec60714e": {
+        "privateIpAddress": "10.137.100.187",
+        "securityGroups": {
+          "sg-90b23ce6": {
+            "desciption": "Provides default SSH access"
+          },
+          "sg-5e4fc128": {
+            "desciption": "Mesos Worker Security Group"
+          },
+          "sg-0344ca75": {
+            "desciption": "Whole Mesos cluster Security Group"
+          },
+          "sg-41b13f37": {
+            "desciption": "Provides egress for ports 8140, 80 and 443"
+          }
+        }
+      }
+    }
+  },
+  "subnet-4283df1f": {
+    "subnetLogicalName": "PublicUsEast1bEc2Subnet",
+    "subnetName": "10.137.97.0/24-Public-us-east-1b",
+    "CidrBlock": "10.137.97.0/24",
+    "instances": null
+  },
+  "subnet-faafa89e": {
+    "subnetLogicalName": "PrivateUsEast1cEc2Subnet",
+    "subnetName": "10.137.102.0/24-VPCSubnet-us-east-1c",
+    "CidrBlock": "10.137.102.0/24",
+    "instances": {
+      "i-0304c0f51dc93aef8": {
+        "privateIpAddress": "10.137.102.157",
+        "securityGroups": {
+          "sg-064b308dccf1aa107": {
+            "desciption": "Provides access to Structured Logging services"
+          },
+          "sg-02f47b9ad2741b9b4": {
+            "desciption": "Provides ICMP access"
+          },
+          "sg-061c101e70247ccf4": {
+            "desciption": "Provides default SSH access"
+          },
+          "sg-0bf55a7972e75b0fd": {
+            "desciption": "Provides egress for ports 8140, 80 and 443"
+          }
+        }
+      }
+    }
+  },
+  "subnet-48b8e167": {
+    "subnetLogicalName": "PrivateUsEast1dEc2Subnet",
+    "subnetName": "10.137.103.0/24-VPCSubnet-us-east-1d",
+    "CidrBlock": "10.137.103.0/24",
+    "instances": {
+      "i-081b463861d5b6340": {
+        "privateIpAddress": "10.137.103.110",
+        "securityGroups": {
+          "sg-90b23ce6": {
+            "desciption": "Provides default SSH access"
+          },
+          "sg-5e4fc128": {
+            "desciption": "Mesos Worker Security Group"
+          },
+          "sg-0344ca75": {
+            "desciption": "Whole Mesos cluster Security Group"
+          },
+          "sg-41b13f37": {
+            "desciption": "Provides egress for ports 8140, 80 and 443"
+          }
+        }
+      }
+    }
+  },
+  "subnet-3cb7b058": {
+    "subnetLogicalName": "PublicUsEast1cEc2Subnet",
+    "subnetName": "10.137.98.0/24-Public-us-east-1c",
+    "CidrBlock": "10.137.98.0/24",
+    "instances": null
+  }
+}

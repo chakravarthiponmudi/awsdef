@@ -1,0 +1,70 @@
+[
+  {
+    "id": "i-081b463861d5b6340",
+    "subnetId": "subnet-48b8e167"
+  },
+  {
+    "id": "i-0304c0f51dc93aef8",
+    "subnetId": "subnet-faafa89e"
+  },
+  {
+    "id": "i-0e9c650e07b3a4d56",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-077e6ede3ec60714e",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-01db414771300f020",
+    "subnetId": "subnet-48b8e167"
+  },
+  {
+    "id": "i-085055765fff1af4a",
+    "subnetId": "subnet-faafa89e"
+  },
+  {
+    "id": "i-06e1a981dc1131d17",
+    "subnetId": "subnet-48b8e167"
+  },
+  {
+    "id": "i-0a053adc8bed1761b",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-08d689ad150a7af48",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-0e39de11587c614be",
+    "subnetId": "subnet-48b8e167"
+  },
+  {
+    "id": "i-049fab78505b48e35",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-0d1441af5b181e18d",
+    "subnetId": "subnet-b4b7ebe9"
+  },
+  {
+    "id": "i-03e1b374fecbf7338",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-0ed85a42960cc6429",
+    "subnetId": "subnet-faafa89e"
+  },
+  {
+    "id": "i-0d255513678e78fab",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-0afaf6373c17b80ff",
+    "subnetId": "subnet-f7e808bd"
+  },
+  {
+    "id": "i-0a5f506b7fb57a60b",
+    "subnetId": "subnet-b4b7ebe9"
+  }
+]
