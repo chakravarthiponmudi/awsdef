@@ -1,0 +1,14 @@
+{
+  "name": "awsdefinition",
+  "version": "1.0.0",
+  "description": "AWS Architecture scanner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Chakravarthi Ponmudi",
+  "license": "ISC",
+  "dependencies": {
+    "aws-cli-js": "^2.0.2"
+  }
+}
