@@ -34,6 +34,13 @@ async function getSecurityGroupsByGroupIDs(groupIds) {
   return data.object.SecurityGroups;
 }
 
+async function getSecurityGroupsByVPC(vpcid) {
+  const cmd = `ec2 describe-security-groups --filter "Name=vpc-id,Values=${vpcid}"`
+  const data = await aws.command(cmd);
+  return data.object.SecurityGroups;
+}
+
+
 function getTag(arrObj, key) {
   const result =  arrObj.filter(entry => {
     return entry.Key === key
@@ -47,6 +54,7 @@ exports.utils = {
   getInstancesByVPC: getInstancesByVPC,
   getInstancesBySubnet: getInstancesBySubnet,
   getSecurityGroupsByGroupIDs: getSecurityGroupsByGroupIDs,
+  getSecurityGroupsByVPC: getSecurityGroupsByVPC,
   getSubnets: getSubnets,
   getTag: getTag
 

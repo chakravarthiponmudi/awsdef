@@ -24,15 +24,32 @@ function populateSubnets(vpc,subnets) {
 
 function processInbound(ipPermission) {
     const type = ipPermission.IpProtocol == "-1" ? "ALL": ipPermission.IpProtocol;
-    const toPort = ipPermission.IpProtocol == "-1" ? "": ipPermission.ToPort;
+    const toPort = ipPermission.ToPort ?  ipPermission.ToPort: "";
+    const fromPort = ipPermission.FromPort ? ipPermission.FromPort: "";
     const sGroups = ipPermission.UserIdGroupPairs.map(x => x.GroupId);
     const ips = ipPermission.IpRanges.map(x => x.CidrIp);
     return {
       type,
       toPort,
+      fromPort,
       sGroups,
       ips
     };
+}
+
+function processOutbound(outbound) {
+  const type = outbound.IpProtocol == "-1" ? "ALL": outbound.IpProtocol;
+  const toPort = outbound.ToPort ?  outbound.ToPort: "";
+  const fromPort = outbound.FromPort ? outbound.FromPort: "";
+  const sGroups = outbound.UserIdGroupPairs.map(x => x.GroupId);
+  const ips = outbound.IpRanges.map(x => x.CidrIp);
+  return {
+    type,
+    toPort,
+    fromPort,
+    sGroups,
+    ips
+  };
 }
 
 async function getSecurityGroupsDetails(securityGroupIds) {
@@ -43,13 +60,42 @@ async function getSecurityGroupsDetails(securityGroupIds) {
         sGroup.IpPermissions.forEach((entry) => {
           inbound.push(processInbound(entry));
         }); 
+
+        let outbound = [];
+        sGroup.IpPermissionsEgress.forEach((entry) => {
+          outbound.push(processOutbound(entry));
+        }); 
         
         result[sGroup.GroupId] = {
           desciption: sGroup.Description,
-          inbound
+          inbound,
+          outbound
         }
     }
     return result;
+}
+
+async function getAllSecurityGroupsByVPC(vpcId) {
+  const securityGroups = await utils.getSecurityGroupsByVPC(vpcId);
+  const result = {};
+  for (let sGroup of securityGroups) {
+      let inbound = [];
+      sGroup.IpPermissions.forEach((entry) => {
+        inbound.push(processInbound(entry));
+      }); 
+
+      let outbound = [];
+        sGroup.IpPermissionsEgress.forEach((entry) => {
+          outbound.push(processOutbound(entry));
+        }); 
+      
+      result[sGroup.GroupId] = {
+        desciption: sGroup.Description,
+        inbound,
+        outbound
+      }
+  }
+  return result;
 }
 
 async function populateInstances(vpc, subnetId, instances) {
@@ -76,6 +122,7 @@ async function populateInstances(vpc, subnetId, instances) {
 async function main () {
   const vpcid = "vpc-4721f93c";
   const VPC = {};
+  const sgroups = {};
   try {
     const subnets = await utils.getSubnets(vpcid);
     populateSubnets(VPC,subnets);
@@ -87,11 +134,11 @@ async function main () {
       const instances = await utils.getInstancesBySubnet(subnetId);
       await populateInstances(VPC,subnetId,instances);
     }))
-    // for ( let subnetId of subnetIds) {
-      
-    // }
+    
+    const sgroups = await getAllSecurityGroupsByVPC(vpcid);
 
     console.log(JSON.stringify(VPC,null,2));
+    console.log(JSON.stringify(sgroups,null,2));
 
   }
   catch (err) {
