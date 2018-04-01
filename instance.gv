@@ -1,0 +1,30 @@
+digraph vpc {
+  label="VPC"
+  subgraph cluster_0 {
+    label=<<TABLE BORDER="0">
+      <TR><TD>subnet-faafa89e</TD></TR>
+      <TR><TD>10.137.102.0/24</TD></TR>
+    <TR><TD>PrivateUsEast1cEc2Subnet</TD></TR>
+    </TABLE>>
+    "i-0304c0f51dc93aef8" [label=<<TABLE BORDER="0">
+    <TR><TD><IMG SRC="resources/ec2.png"/></TD></TR>
+    <TR><TD>10.137.102.157</TD></TR>
+    </TABLE>>];
+  };
+
+  subgraph cluster_1 {
+    label="subnet-f7e808bd";
+    color=blue;
+   "i-0e9c650e07b3a4d56" [label=<<TABLE BORDER="0">
+      <TR><TD><IMG SRC="resources/ec2.png"/></TD></TR>
+      <TR><TD>10.137.100.64</TD></TR>
+    </TABLE>> border=none];
+
+   "i-077e6ede3ec60714e" [label=<<TABLE BORDER="0">
+     <TR><TD><IMG SRC="resources/ec2.png"/></TD></TR>
+     <TR><TD>10.137.100.187</TD></TR>
+    </TABLE>>];
+
+  };
+
+}
