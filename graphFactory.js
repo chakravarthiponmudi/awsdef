@@ -1,8 +1,15 @@
 var Graph = require('./grapviz/graph')
+var VPC = require('./grapviz/graphs/vpc');
+var Node = require('./grapviz/node');
+var Instance = require('./grapviz/nodes/instance');
+var Edge = require('./grapviz/edge');
+
+
 class GraphFactory {
 
   constructor () {
-    this.graph = new Graph();
+    this.vpc = '';
+    this.securityGroups = '';
   }
 
   addGraphAttributes() {
@@ -34,6 +41,25 @@ class GraphFactory {
 
   }
 
+  parseVPC({
+    name,
+    vpc
+  }) {
+    this.vpc = new VPC().createVPC({
+      name,
+      vpc
+    });
+
+  }
+
+  toString() {
+    return this.vpc.toString();
+  }
+
+  parseSubNets() {
+
+  }
+
 }
 
-module.exports = DrawGraph;
+module.exports = GraphFactory;

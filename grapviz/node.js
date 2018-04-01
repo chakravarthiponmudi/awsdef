@@ -1,11 +1,14 @@
 class Node {
 
     constructor() {
-        this.nodeText = "";
+        this.name = "";
     }
 
+    getName() {
+        return this.name;
+    }
     toString() {
-        return nodeText;
+        return name;
     }
 }
 
